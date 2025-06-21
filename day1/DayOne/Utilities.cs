@@ -30,9 +30,16 @@ public class Utilities
 
                 foreach (var nums in numbersSplit)
                 {
-                    for (int i = 0; i < numbersSplit.Count; i++)
+                    for (int i = 0; i < nums.Length; i++)
                     {
-
+                        if (i % 2 == 0)
+                        {
+                            firstList.Add(Int32.Parse(nums[i]));
+                        }
+                        else
+                        {
+                            secondList.Add(Int32.Parse(nums[i]));
+                        }
                     }
                 }
 
