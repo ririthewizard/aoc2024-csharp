@@ -2,40 +2,31 @@
 
 public class Solution
 {
-    internal static List<List<int>> Extract(string file)
+    internal static List<int> SafeOrUnsafe(string file)
     {
-        List<List<int>> records = new List<List<int>>();
+        List<int> reports = new List<int>();
         if (File.Exists(file))
         {
-            var splitLines = File.ReadLines(file).Select(line => line.Split("\n"));
+            string[] lines = File.ReadAllLines(file);
 
-            foreach (var line in splitLines)
+            foreach (string line in lines)
             {
-                Console.WriteLine(line);
-                List<int> record = new List<int>();
-                for (int i = 0; i < line.Length; i++)
+                string[] report = line.Split(' ', '\n');
+                for (int i = 0; i < report.Length; i++)
                 {
-                    var chars = line[i].Split(" ");
-                    // foreach (var c in chars)
-                    // {
-                    //     record.Add(Int32.Parse(c));
-                    // }
-                    Console.WriteLine(record);
-                    records.Add(record);
+                    int sign;
                 }
-                record.TrimExcess();
-                record.Clear();
             }
         }
 
-        return records;
+        return reports;
     }
 
 
     public static void Main(string[] args)
     {
         string filePath = "/home/void/workspace/github.com/ririthewizard/aoc2024-csharp/DayTwo/reports.txt";
-        Extract(filePath);
+        SafeOrUnsafe(filePath);
     }
 }
 
